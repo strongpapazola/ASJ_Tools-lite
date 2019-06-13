@@ -1,0 +1,10 @@
+1. jalankan tools
+2. atur ip
+3. tambahkan nameserver ip pada resolv.conf jika error
+4. atur DVD 1
+5. install ssh
+6. reboot
+7. atur DVD 2
+8. install dhcp dan proftpd
+9. hapus pagar pada konfigurasi dhcpd.conf
+10. tambahkan direktori di configurasi proftpd.conf
