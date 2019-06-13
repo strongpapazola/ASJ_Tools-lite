@@ -10,10 +10,10 @@ Di Uji :
 
 Penggunaan :
 1. jalankan tools
- a. git clone https://github.com/strongpapazola/ASJ_Tools-lite
- b. chmod +x ASJ_Tools-lite
- c. cd ASJ_Tools-lite
- d. 
+a. git clone https://github.com/strongpapazola/ASJ_Tools-lite
+b. chmod +x ASJ_Tools-lite
+c. cd ASJ_Tools-lite
+d. 
 2. atur ip
 3. tambahkan nameserver ip pada resolv.conf jika error
 4. atur DVD 1
