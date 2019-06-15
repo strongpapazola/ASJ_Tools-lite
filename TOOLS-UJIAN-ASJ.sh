@@ -86,6 +86,8 @@ echo "[*] Memulai Instalasi Packet...!"
 echo "========================"
 echo "Masukan DVD 1 Debian...!"
 read -p "[Enter Jika Sudah]" ok
+apt-cdrom ident
+apt-cdrom ident
 apt-cdrom add
 apt-cdrom add
 read -p "[Silahkan Cek Error]" ok
@@ -95,6 +97,8 @@ clear
 echo "========================"
 echo "Masukan DVD 2 Debian...!"
 read -p "[Enter Jika Sudah]" ok
+apt-cdrom ident
+apt-cdrom ident
 apt-cdrom add
 apt-cdrom add
 read -p "[Silahkan Cek Error]" ok
