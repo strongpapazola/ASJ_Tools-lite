@@ -9,11 +9,12 @@ Di Uji :
 1. Debian 7.8 (intel) offline
 
 Penggunaan :
-1. jalankan tools {
-1. git clone https://github.com/strongpapazola/ASJ_Tools-lite/
-2. chmod +x ASJ_Tools-lite
-3. cd ASJ_Tools-lite
-4. ./TOOLS-UJIAN-ASJ.sh
+1. jalankan tools
+{
+ 1. git clone https://github.com/strongpapazola/ASJ_Tools-lite/
+ 2. chmod +x ASJ_Tools-lite
+ 3. cd ASJ_Tools-lite
+ 4. ./TOOLS-UJIAN-ASJ.sh
 }
 2. atur ip
 3. tambahkan nameserver ip pada resolv.conf jika error
