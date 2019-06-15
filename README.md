@@ -10,10 +10,10 @@ Di Uji :
 
 Penggunaan :
 1. jalankan tools {
-git clone https://github.com/strongpapazola/ASJ_Tools-lite/
-chmod +x ASJ_Tools-lite
-cd ASJ_Tools-lite
-./TOOLS-UJIAN-ASJ.sh
+1. git clone https://github.com/strongpapazola/ASJ_Tools-lite/
+2. chmod +x ASJ_Tools-lite
+3. cd ASJ_Tools-lite
+4. ./TOOLS-UJIAN-ASJ.sh
 }
 2. atur ip
 3. tambahkan nameserver ip pada resolv.conf jika error
