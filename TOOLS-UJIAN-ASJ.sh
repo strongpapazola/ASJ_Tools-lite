@@ -5,12 +5,16 @@ alamatip3="192.168.16.255"
 banner(){
 clear
 echo
-echo "Welcome TO ...!"
 sleep 1
-echo '* * S Y S T A R  S Y S T E M * *'
+echo " ______   ______ _____  _    ____    ______   ______ _____ _____ __  __ "
+echo "/ ___\ \ / / ___|_   _|/ \  |  _ \  / ___\ \ / / ___|_   _| ____|  \/  |"
+echo "\___ \\ V /\___ \ | | / _ \ | |_) | \___ \\ V /\___ \ | | |  _| | |\/| |"
+echo " ___) || |  ___) || |/ ___ \|  _ <   ___) || |  ___) || | | |___| |  | |"
+echo "|____/ |_| |____/ |_/_/   \_\_| \_\ |____/ |_| |____/ |_| |_____|_|  |_|"
+echo                                                                        
 sleep 2
 echo
-echo "[*] Memulai Tools Ujian Bu Siti...!"
+echo "[*] Memulai Tools...!"
 sleep 2
 echo "1. Atur IP"
 echo "2. Install Packet"
