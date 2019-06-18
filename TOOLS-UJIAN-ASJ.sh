@@ -12,7 +12,7 @@ echo "\___ \\ V /\___ \ | | / _ \ | |_) | \___ \\ V /\___ \ | | |  _| | |\/| |"
 echo " ___) || |  ___) || |/ ___ \|  _ <   ___) || |  ___) || | | |___| |  | |"
 echo "|____/ |_| |____/ |_/_/   \_\_| \_\ |____/ |_| |____/ |_| |_____|_|  |_|"
 echo
-echo " Author : strongpapazola
+echo " Author : strongpapazola "
 echo                                                                        
 sleep 2
 echo
