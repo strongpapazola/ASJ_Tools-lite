@@ -152,6 +152,7 @@ echo "[*] Proftpd Setting...!"
 read -p "Masukan Username : " uname
 mkdir /home/$uname
 sed -i 's/ServerName			"Debian"/ServerName			"example.org"/g' /etc/proftpd/proftpd.conf
+sed -i "s/# DefaultRoot                   ~/DefaultRoot                   \/home\/$uname/g" /etc/proftpd/proftpd.conf
 read -p "Ubah DefaultRoot Configurasi ke /home/$uname [Enter]" ok
 nano /etc/proftpd/proftpd.conf
 read -p "Beres ? [Enter]" ok
