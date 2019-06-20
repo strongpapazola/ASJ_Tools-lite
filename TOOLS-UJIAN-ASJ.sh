@@ -130,6 +130,7 @@ sed -i "s/#  option broadcast-address 10.5.5.31;/  option broadcast-address $ala
 sed -i "s/#  default-lease-time 600;/  default-lease-time 600;/g" /etc/dhcp/dhcpd.conf
 sed -i "s/#  max-lease-time 7200;/  max-lease-time 7200;/g" /etc/dhcp/dhcpd.conf
 sed -i 's/INTERFACES=""/INTERFACES="eth0"/g' /etc/default/isc-dhcp-server
+#sed -i '3c\}' /etc/dhcp/dhcpd.conf
 clear
 read -p "Hapus Pagar Pada Configurasi [Enter]" ok
 nano /etc/dhcp/dhcpd.conf
