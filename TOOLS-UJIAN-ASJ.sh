@@ -71,6 +71,7 @@ if [ $ok = "y" ];then
 	echo "        network $alamatip2" >> /etc/network/interfaces
 	echo "        broadcast $alamatip3" >> /etc/network/interfaces
 	echo "        gateway $alamatip1" >> /etc/network/interfaces
+	echo "nameserver $alamatip1" > /etc/resolf.conf
 	clear
 	echo "[*] Menampilkan Settingan...!"
 	echo "======================================"
