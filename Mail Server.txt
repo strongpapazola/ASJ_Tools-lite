@@ -1,0 +1,7 @@
+apt-get install postfix courier-imap courier-pop squirelmail
+maildirmake /etc/skel/Maildir
+echo "home_mailbox = Maildir/" >> /etc/postfix/main.cf
+dpkg-reconfigure postfix
+
+echo 'include "/etc/squirrelmail/apache.conf"' >> /etc/apache2/apache2.conf
+ln -s /usr/share/squirrelmail/ /var/www/mail
