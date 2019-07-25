@@ -1,27 +1,34 @@
-alamatip1="192.168.116.5"
-alamatip2="192.168.116.0"
-alamatip3="192.168.116.255"
+$ip1="192"
+$ip2="168"
+$ip3="16"
+$ip4="5"
 
 banner(){
 clear
 echo
-sleep 1
-echo " ______   ______ _____  _    ____    ______   ______ _____ _____ __  __ "
-echo "/ ___\ \ / / ___|_   _|/ \  |  _ \  / ___\ \ / / ___|_   _| ____|  \/  |"
-echo "\___ \\ V /\___ \ | | / _ \ | |_) | \___ \\ V /\___ \ | | |  _| | |\/| |"
-echo " ___) || |  ___) || |/ ___ \|  _ <   ___) || |  ___) || | | |___| |  | |"
-echo "|____/ |_| |____/ |_/_/   \_\_| \_\ |____/ |_| |____/ |_| |_____|_|  |_|"
+sleep 0.5
+echo ' ______   ______ _____  _    ____    ______   ______ _____ _____ __  __ '
+sleep 0.3
+echo '/ ___\ \ / / ___|_   _|/ \  |  _ \  / ___\ \ / / ___|_   _| ____|  \/  |'
+sleep 0.3
+echo '\___ \\ V /\___ \ | | / _ \ | |_) | \___ \\ V /\___ \ | | |  _| | |\/| |'
+sleep 0.3
+echo ' ___) || |  ___) || |/ ___ \|  _ <   ___) || |  ___) || | | |___| |  | |'
+sleep 0.3
+echo '|____/ |_| |____/ |_/_/   \_\_| \_\ |____/ |_| |____/ |_| |_____|_|  |_|'
+sleep 0.3
 echo
+sleep 0.3
 echo " Author : strongpapazola "
 echo
 sleep 0.5
 echo
 echo "[*] Memulai Tools...!"
-sleep 0.5
+sleep 0.3
 echo "[*] Mengisialisai System...!"
-sleep 0.5
+sleep 0.3
 echo "[*] System yang di setujui '#1 SMP Debian 3.2.65-1 i686 GNU/Linux' ...!"
-sleep 0.5
+sleep 0.3
 echo
 echo "1. Atur IP"
 echo "2. Install Packet"
@@ -60,16 +67,15 @@ clear
 echo "[*] Mengaktifkan Aturan IP...!"
 echo "[*] Mengaktifkan Interfaces eth0...!"
 ifconfig eth0 up
-read -p "Masukan IP : " alamatip1
-read -p "Masukan Network : " alamatip2
-read -p "Masukan Broadcast : " alamatip3
+read -p "Masukan IP (Pisahkan Dengan Spasi): " ip1 ip2 ip3 ip4
+read -p "[Enter]" ok
 clear
 echo "========================================="
-echo " IP        : "$alamatip1
+echo " IP        : "$ip1.$ip2.$ip3.$ip4
 echo " Netmask   : 255.255.255.0"
-echo " Network   : "$alamatip2
-echo " Broadcast : "$alamatip3
-echo " Gateway   : "$alamatip1
+echo " Network   : "$ip1.$ip2.$ip3."0"
+echo " Broadcast : "$ip1.$ip2.$ip3."255"
+echo " Gateway   : "$ip1.$ip2.$ip3.$ip4
 echo "========================================="
 read -p "Apakah Sudah Benar...? [y/n] " ok
 if [ $ok = "y" ];then
@@ -80,12 +86,12 @@ if [ $ok = "y" ];then
 	sed -i 's/iface eth0 inet dhcp//g' /etc/network/interfaces
 	echo "auto eth0" >> /etc/network/interfaces
 	echo "iface eth0 inet static" >> /etc/network/interfaces
-	echo "        address $alamatip1" >> /etc/network/interfaces
+	echo "        address $ip1.$ip2.$ip3.$ip4" >> /etc/network/interfaces
 	echo "        netmask 255.255.255.0" >> /etc/network/interfaces
-	echo "        network $alamatip2" >> /etc/network/interfaces
-	echo "        broadcast $alamatip3" >> /etc/network/interfaces
-	echo "        gateway $alamatip1" >> /etc/network/interfaces
-	echo "nameserver $alamatip1" > /etc/resolf.conf
+	echo "        network $ip1.$ip2.$ip3.0" >> /etc/network/interfaces
+	echo "        broadcast $ip1.$ip2.$ip3.255" >> /etc/network/interfaces
+	echo "        gateway $ip1.$ip2.$ip3.$ip4" >> /etc/network/interfaces
+	echo "nameserver $ip1.$ip2.$ip3.$ip4" > /etc/resolf.conf
 	clear
 	echo "[*] Menampilkan Settingan...!"
 	echo "======================================"
@@ -141,22 +147,23 @@ banner
 dhcpsetting(){
 clear
 echo "[*] DHCP Setting...!"
-read -p "Dari IP : " ipdhcp1
-read -p "Sampai IP : " ipdhcp2
+read -p "Dari Host : " ipdhcp1
+read -p "Sampai Host : " ipdhcp2
+read -p "[Enter]" ok
 echo "[*] Memanipulasi /etc/dhcp/dhcpd.conf...!"
 cp /etc/dhcp/dhcpd.conf /etc/dhcp/dhcpd-def.conf
-sed -i "s/#subnet 10.5.5.0 netmask 255.255.255.224 {/subnet $alamatip2 netmask 255.255.255.0 {/g" /etc/dhcp/dhcpd.conf
-sed -i "s/#  range 10.5.5.26 10.5.5.30;/  range $ipdhcp1 $ipdhcp2;/g" /etc/dhcp/dhcpd.conf
-sed -i "s/#  option domain-name-servers ns1.internal.example.org;/  option domain-name-servers $alamatip1;/g" /etc/dhcp/dhcpd.conf
+sed -i "s/#subnet 10.5.5.0 netmask 255.255.255.224 {/subnet $ip1.$ip2.$ip3.0 netmask 255.255.255.0 {/g" /etc/dhcp/dhcpd.conf
+sed -i "s/#  range 10.5.5.26 10.5.5.30;/  range $ip1.$ip2.$ip3.$ipdhcp1 $ip1.$ip2.$ip3.$ipdhcp2;/g" /etc/dhcp/dhcpd.conf
+sed -i "s/#  option domain-name-servers ns1.internal.example.org;/  option domain-name-servers $ip1.$ip2.$ip3.$ip4;/g" /etc/dhcp/dhcpd.conf
 sed -i 's/#  option domain-name "internal.example.org";/  option domain-name "example.org";/g' /etc/dhcp/dhcpd.conf
-sed -i "s/#  option routers 10.5.5.1;/  option routers $alamatip1;/g" /etc/dhcp/dhcpd.conf
-sed -i "s/#  option broadcast-address 10.5.5.31;/  option broadcast-address $alamatip3;/g" /etc/dhcp/dhcpd.conf
+sed -i "s/#  option routers 10.5.5.1;/  option routers $ip1.$ip2.$ip3.$ip4;/g" /etc/dhcp/dhcpd.conf
+sed -i "s/#  option broadcast-address 10.5.5.31;/  option broadcast-address $ip1.$ip2.$ip3.255;/g" /etc/dhcp/dhcpd.conf
 sed -i "s/#  default-lease-time 600;/  default-lease-time 600;/g" /etc/dhcp/dhcpd.conf
 sed -i "s/#  max-lease-time 7200;/  max-lease-time 7200;/g" /etc/dhcp/dhcpd.conf
 sed -i 's/INTERFACES=""/INTERFACES="eth0"/g' /etc/default/isc-dhcp-server
-#sed -i '58c\}' /etc/dhcp/dhcpd.conf
+sed -i '58c\}' /etc/dhcp/dhcpd.conf
 clear
-read -p "Hapus Pagar Pada Configurasi [Enter]" ok
+read -p "Cek Configurasi [Enter]" ok
 nano /etc/dhcp/dhcpd.conf
 read -p "Beres ? [Enter]" ok
 /etc/init.d/isc-dhcp-server restart
