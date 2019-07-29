@@ -1,6 +1,6 @@
 # ASJ_Tools-lite
 
-Fitur :
+*Fitur :*
 1. DHCP Server
 2. SSH Server
 3. FTP Server
@@ -9,10 +9,10 @@ Fitur :
 6. DNS Server
 7. ~Mail Server~ (Worked ON)
 
-Di Uji :
+*Di Uji :*
 - Debian 7.8 (intel) offline
 
-Instalasi (Root Access) :
+*Instalasi (Root Access) :*
 1. apt update && apt upgrade
 2. apt install git
 3. git clone https://github.com/strongpapazola/ASJ_Tools-lite/
