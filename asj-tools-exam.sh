@@ -32,12 +32,13 @@ sleep 0.3
 echo
 echo "1. Atur IP"
 echo "2. Install Packet"
-echo "3. Atur DHCP"
-echo "4. Atur SSH"
-echo "5. Atur FTP"
-echo "6. Atur Samba"
-echo "7. Atur Apache2"
-echo "8. Atur Bind9"
+echo "3. Atur DHCP Server"
+echo "4. Atur SSH Server"
+echo "5. Atur FTP Server"
+echo "6. Atur File Server"
+echo "7. Atur Web Server"
+echo "8. Atur DNS Server"
+echo "9. Atur Mail Server"
 echo
 read -p "Masukan : " pilih
 if [ $pilih = "1" ];then
@@ -56,6 +57,8 @@ elif [ $pilih = "7" ];then
 	apachesetting
 elif [ $pilih = "8" ];then
 	bindsetting
+elif [ $pilih = "9" ];then
+	mailsetting
 else
 	echo Abort.
 	exit
@@ -118,34 +121,6 @@ apt-cdrom add
 apt-get update
 read -p "[Silahkan Cek Error Pemasukan DVD]" ok
 clear
-apt-get install openssh-server -y
-read -p "[Silahkan Cek Paket Openssh-server]" ok
-clear
-apt-get install samba -y
-read -p "[Silahkan Cek Paket Samba]" ok
-clear
-apt-get install apache2 -y
-read -p "[Silahkan Cek Paket Apache2]" ok
-clear
-apt-get install bind9 -y
-read -p "[Silahkan Cek Paket Bind9]" ok
-clear
-apt-get install zip -y
-read -p "[Silahkan Cek Paket ZIP]" ok
-clear
-apt-get install nmap -y
-read -p "[Silahkan Cek Paket Nmap]" ok
-clear
-apt-get install postfix -y
-read -p "[Silahkan Cek Paket Postfix]" ok
-clear
-apt-get install squirrelmail -y
-read -p "[Silahkan Cek Paket Squirrelmail]" ok
-clear
-apt-get install courier-imap -y
-read -p "[Silahkan Cek Paket Courier-imap]" ok
-clear
-
 echo "========================"
 echo "Masukan DVD 2 Debian...!"
 read -p "[Enter Jika Sudah]" ok
@@ -155,13 +130,6 @@ apt-cdrom add
 apt-get update
 read -p "[Silahkan Cek Error Pemasukan DVD]" ok
 clear
-apt-get install isc-dhcp-server -y
-read -p "[Silahkan Cek Paket DHCP]" ok
-clear
-apt-get install proftpd -y
-read -p "[Silahkan Cek Paket FTP]" ok
-clear
-
 echo "========================"
 echo "Masukan DVD 3 Debian...!"
 read -p "[Enter Jika Sudah]" ok
@@ -171,9 +139,8 @@ apt-cdrom add
 apt-get update
 read -p "[Silahkan Cek Error Pemasukan DVD]" ok
 clear
-apt-get install courier-pop -y
-read -p "[Silahkan Cek Paket Courier-pop]" ok
-clear
+
+apt-get install openssh-server isc-dhcp-server proftpd samba apache2 php5 mysql-server phpmyadmin lynx bind9 postfix squirrelmail courier-imap courier-pop zip nmap -y
 
 banner
 }
@@ -342,6 +309,13 @@ read -p "[Enter]" ok
 banner
 }
 
-read -p "pause" ok
+mailsetting(){
+echo "Menjalankan maildirmake.courier /etc/skel/Maildir & Reconfigure Postfix"
+read -p "[Pause]" ok
+maildirmake.courier /etc/skel/Maildir
+dpkg-reconfigure postfix
+echo "home_mailbox = Maildir/" >> /etc/postfix/main.cf
+}
+
 banner
 
