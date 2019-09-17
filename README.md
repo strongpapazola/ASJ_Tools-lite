@@ -7,7 +7,7 @@
 4. File Server
 5. Web Server
 6. DNS Server
-7. ~Mail Server~ (Worked ON)
+7. Mail Server (Manual Input)
 
 *Di Uji :*
 - Debian 7.8 (intel) offline
